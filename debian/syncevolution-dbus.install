@@ -1,0 +1,3 @@
+usr/lib/*/syncevolution/syncevo-dbus-helper
+usr/lib/*/syncevolution/syncevo-dbus-server
+usr/share/dbus-1/services/org.syncevolution.service

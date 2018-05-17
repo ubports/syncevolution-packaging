@@ -1,0 +1,270 @@
+Source: syncevolution
+Section: utils
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Tino Mettler <tino+debian@tikei.de>
+Build-Depends: automake,
+               autotools-dev,
+               debhelper (>= 9),
+               dh-autoreconf,
+               intltool,
+               kdelibs5-dev,
+               kdepimlibs5-dev,
+               libaccounts-glib-dev (>= 1.8),
+               libboost-dev,
+               libcppunit-dev,
+               libcurl4-gnutls-dev,
+               libdbus-glib-1-dev,
+               libebook1.2-dev,
+               libecal1.2-dev,
+               libedataserver1.2-dev,
+               libgconf2-dev,
+               libglade2-dev,
+               libglib2.0-dev,
+               libgnome-keyring-dev,
+               libgtk2.0-dev,
+               libical-dev,
+               libneon27-gnutls-dev,
+               libnotify-dev,
+               libopenobex2-dev [linux-any] | libopenobex-dev [linux-any],
+               libpcre3-dev,
+               libsignon-glib-dev (>= 1.7),
+               libsynthesis-dev (>=3.4.0.47.5),
+               libtool,
+               pkg-config,
+               python-docutils,
+               xsltproc
+Standards-Version: 3.9.5
+Homepage: http://www.syncevolution.org
+Vcs-Bzr: lp:~phablet-team/syncevolution/ubuntu
+
+Package: syncevolution
+Architecture: any
+Depends: syncevolution-common (= ${source:Version}),
+         syncevolution-libs (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: bluez
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (CLI)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides the CLI client.
+
+Package: sync-ui
+Architecture: any
+Depends: syncevolution-common (= ${source:Version}),
+         syncevolution-dbus,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: bluez
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (GTK+ GUI)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides a GTK+ graphical user interface.
+
+Package: syncevolution-common
+Architecture: all
+Depends: ${misc:Depends}
+Conflicts: sync-ui (<<1.1+ds1-1~), syncevolution (<<1.1+ds1-1~)
+Replaces: sync-ui (<<1.1+ds1-1~), syncevolution (<<1.1+ds1-1~)
+Description: Sync personal information data using SyncML and CalDAV/CardDAV
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides common architecture independent files.
+
+Package: syncevolution-libs
+Architecture: any
+Depends: syncevolution-libs-gnome (= ${binary:Version}) | syncevolution-libs-kde (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (libraries)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides private libraries and plugins.
+
+Package: syncevolution-libs-gnome
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Recommends: evolution-data-server
+Replaces: syncevolution-libs (<< 1.3.99.7)
+Breaks: syncevolution-libs (<< 1.3.99.7)
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (libraries)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides private libraries and plugins for Gnome.
+
+Package: syncevolution-libs-kde
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Replaces: syncevolution-libs (<< 1.3.99.7)
+Breaks: syncevolution-libs (<< 1.3.99.7)
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (libraries)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides private libraries and plugins for KDE.
+
+Package: syncevolution-provider-uoa
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (UOA provider)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides a provider for Ubuntu Online Accounts, allowing
+ syncevolution to access account information stored there.
+
+Package: syncevolution-provider-goa
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (GOA provider)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides a provider for GNOME Online Accounts, allowing
+ syncevolution to access account information stored there.
+
+Package: syncevolution-dbus
+Architecture: any
+Depends: dbus,
+         syncevolution-common (= ${source:Version}),
+         syncevolution-libs (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Replaces: sync-ui (<< 1.1+ds1-1)
+Breaks: sync-ui (<< 1.1+ds1-1)
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (D-Bus support)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides D-Bus services.
+
+Package: syncevolution-http
+Architecture: all
+Depends: dbus-x11,
+         python,
+         python-dbus,
+         python-gobject,
+         python-openssl,
+         python-twisted-web,
+         syncevolution-dbus (>= ${source:Version}),
+         ${misc:Depends}
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (HTTP server)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides a python script to make SyncEvolution act as a HTTP(S)
+ server for other SyncML clients.
+
+Package: syncevolution-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends: sync-ui (= ${binary:Version}),
+         syncevolution (= ${binary:Version}),
+         syncevolution-dbus (= ${binary:Version}),
+         ${misc:Depends}
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (debugging)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides debugging symbols
+
+Package: libsyncevolution0
+Architecture: any
+Depends: dbus,
+         syncevolution-common (= ${source:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (shared library)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides a shared library.
+
+Package: libsyncevo-dbus0
+Architecture: any
+Depends: dbus,
+         syncevolution-common (= ${source:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (shared library)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides a shared library.
+
+Package: libgdbussyncevo0
+Architecture: any
+Depends: dbus,
+         syncevolution-common (= ${source:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Replaces: syncevolution-libs (<< 1.2.99.1)
+Breaks: syncevolution-libs (<< 1.2.99.1)
+Description: Sync personal information data using SyncML and CalDAV/CardDAV (shared library)
+ SyncEvolution synchronizes contact, calendar and task items via SyncML and
+ CalDAV/CardDAV with other servers or devices. It uses the Evolution Data Server
+ to sync PIM data in Evolution, but a plain file storage is also supported.
+ Data exchange can happen via HTTP(S) and Bluetooth. Full, one-way and
+ incremental synchronization of items are supported. SyncEvolution can act as
+ a SyncML/DAV client and SyncML server.
+ .
+ This package provides a shared library.

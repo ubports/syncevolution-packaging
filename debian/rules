@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+export DH_VERBOSE=1
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic 
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+%: 
+	dh $@ --parallel
+
+override_dh_auto_install:
+	make install DESTDIR=$(CURDIR)/debian/tmp
+	install --mode=0755 --owner=root test/syncevo-http-server.py \
+		$(CURDIR)/debian/tmp/usr/bin/syncevo-http-server
+
+override_dh_auto_configure: 
+	sh autogen.sh
+	dh_auto_configure -- --with-synthesis-src=none --prefix=/usr \
+			--sysconfdir=/etc \
+			--libexecdir=/usr/lib/$(DEB_HOST_MULTIARCH)/syncevolution \
+			--enable-gui \
+			--enable-kwallet --enable-akonadi\
+			--with-rst2man --with-rst2html --enable-dav \
+			--enable-uoa
+
+override_dh_install:
+	dh_install -X"*.pl" --list-missing
+
+override_dh_strip:
+	dh_strip --dbg-package=syncevolution-dbg

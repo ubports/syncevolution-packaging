@@ -1,0 +1,3 @@
+usr/lib/*/syncevolution/backends/platformgnome.so
+usr/lib/*/syncevolution/backends/syncebook.so
+usr/lib/*/syncevolution/backends/syncecal.so

@@ -1,0 +1,7 @@
+0001-Fix-FTBFS-on-kfreebsd-due-to-missing-SOCK_CLOEXEC.patch
+0002-Avoid-register-unecessary-timezones.patch
+fix-photo-merging.patch
+calendar-limit-date-sync.diff
+Use-90-days-as-default-value-for-syncInterval.patch
+Handle-error-403-from-google-calendar.patch
+syncevolution-1.5.1-libical2.patch

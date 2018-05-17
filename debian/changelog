@@ -1,0 +1,374 @@
+syncevolution (1.5.1+16.04.20160706-1ubports2) xenial; urgency=medium
+
+  * New upstream release
+    -debian/patches/Avoid-crash-if-the-g_variant_new_string-fails.patch, merged
+    upstream
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 06 Jul 2016 14:15:27 +0000
+
+syncevolution (1.5-0ubuntu14) yakkety; urgency=medium
+
+  * debian/patches/syncevolution-1.5.1-libical2.patch: Take patch from Fedora
+    to fix build against libical2.
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Tue, 31 May 2016 12:48:14 +0100
+
+syncevolution (1.5-0ubuntu13) yakkety; urgency=medium
+
+  * No-change rebuild for libical soname change.
+
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 25 May 2016 13:08:54 +0000
+
+syncevolution (1.5-0ubuntu12) xenial; urgency=medium
+
+  * Build-depend on libopenobex2-dev | libopenobex-dev.
+
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 17 Feb 2016 11:18:40 +0100
+
+syncevolution (1.5-0ubuntu10) xenial; urgency=medium
+
+  * No change rebuild with the new e-d-s sonames
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 29 Oct 2015 10:46:03 +0100
+
+syncevolution (1.5-0ubuntu9) wily; urgency=medium
+
+  * Install GOA support into a separate binary package. (LP: #1406200)
+
+ -- Bruce Pieterse <dev@otq.za.net>  Tue, 04 Aug 2015 20:42:49 +0200
+
+syncevolution (1.5-0ubuntu8) wily; urgency=medium
+
+  * Drop wrong hard-coded dependency on libsynthesis0 from
+    syncevolution-common.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Sun, 02 Aug 2015 10:24:06 +0000
+
+syncevolution (1.5-0ubuntu7) wily; urgency=medium
+
+  * No-change rebuild against libsynthesis0v5.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Sun, 02 Aug 2015 09:33:55 +0000
+
+syncevolution (1.5-0ubuntu7~gcc5.1) wily; urgency=medium
+
+  * No-change test rebuild for g++5 ABI transition
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Thu, 30 Jul 2015 21:37:04 +0000
+
+syncevolution (1.5-0ubuntu6) wily; urgency=medium
+
+  * No-change rebuild against new e-d-s
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Wed, 17 Jun 2015 11:58:44 +0100
+
+syncevolution (1.5-0ubuntu5) vivid; urgency=medium
+
+  * debian/patches/calendar-limit-date-sync.diff
+    - Fixed startDate return value to use month in the range 1..12, instead of 0..11.
+
+  * debian/patches/Handle-error-403-from-google-calendar.patch
+    - Handle google calendar error 403 while syncing to avoid sync to fail.
+
+  * debian/patches/Avoid-crash-if-the-g_variant_new_string-fails.patch
+    - Avoid crash if the 'g_variant_new_string' is called with a invalid string.
+
+ -- Renato Araujo Oliveira Filho <renato.filho@canonical.com>  Wed, 01 Apr 2015 12:29:08 -0300
+
+syncevolution (1.5-0ubuntu4) vivid; urgency=medium
+
+  * Use 90 days as default value for syncInterval.
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 04 Feb 2015 09:08:33 -0500
+
+syncevolution (1.5-0ubuntu3) vivid; urgency=medium
+
+  * Revert upload of 1.5-0ubuntu2, neither sponsor nor sponsoree have
+    upload permissions into the Ubuntu Archive for this package.
+  * Upload was performed via:
+    - https://ci-train.ubuntu.com/job/prepare-silo/3978/console
+    - not approved in https://code.launchpad.net/~renatofilho/ubuntu/vivid/syncevolution/default-syncInterval/+merge/247768
+
+ -- Dimitri John Ledkov <dimitri.j.ledkov@linux.intel.com>  Wed, 04 Feb 2015 10:29:14 +0000
+
+syncevolution (1.5-0ubuntu2) vivid; urgency=medium
+
+  * Use 90 days as default value for syncInterval.
+
+ -- Robert Bruce Park <robert.park@canonical.com>  Tue, 03 Feb 2015 11:09:21 -0800
+
+syncevolution (1.5-0ubuntu1) vivid; urgency=medium
+
+  * No-change rebuild for new libical
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Tue, 06 Jan 2015 17:34:04 +0000
+
+syncevolution (1.5-0ubuntu0) vivid; urgency=medium
+
+  * New upstream release.
+  * debian/control
+    - bumped build depends on libsynthesis-dev to >=3.4.0.47.5
+  * debian/patches/calendar-limit-date-sync.diff
+    - limit dates on sync
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Tue, 04 Nov 2014 14:41:39 -0500
+
+syncevolution (1.4.99.4-2) unstable; urgency=medium
+
+  * Fix FTBFS on kfreebsd due to missing SOCK_CLOEXEC
+
+ -- Tino Mettler <tino+debian@tikei.de>  Sun, 26 Oct 2014 14:12:59 +0100
+
+syncevolution (1.4.99.4-1) unstable; urgency=medium
+
+  * New upstream release candidate
+  * Build-depend on libsynthesis 3.4.0.47.4
+  * syncaddressbook.so vanished, as iOS addressbook support was removed
+
+ -- Tino Mettler <tino+debian@tikei.de>  Sat, 25 Oct 2014 22:34:41 +0200
+
+syncevolution (1.4-1ubuntu4) trusty; urgency=medium
+
+  [ Renato Araujo Oliveira Filho ]
+  * debian/patches/removed-workarount-not-necessary-in-new-eds.patch:
+    - Added patch to optimize EDS calendar sync (LP: #1306112)
+
+ -- Robert Bruce Park <robert.park@canonical.com>  Tue, 15 Apr 2014 12:34:32 -0700
+
+syncevolution (1.4-1ubuntu2) trusty; urgency=medium
+
+  * Imported patch to fix contact photo merging.
+
+ -- Robert Bruce Park <robert.park@canonical.com>  Fri, 04 Apr 2014 18:24:20 -0300
+
+syncevolution (1.4-1ubuntu1) trusty; urgency=medium
+
+  * Add build-dependencies and pass configure flag to enable Ubuntu Online
+    Accounts support. (LP: #1285583)
+  * Take patch from upstream bug #75670 to fix build (build system cannot find
+    `QString' due to incorrect CPPFLAGS)
+  * Install UOA support into a separate binary package.
+
+ -- Iain Lane <iain.lane@canonical.com>  Thu, 06 Mar 2014 16:50:57 +0000
+
+syncevolution (1.4-1) unstable; urgency=high
+
+  * New upstream release
+  * Allow parallel builds
+  * Adjust Maintainer: field to new surname
+  * Fix FTBFS due to erroneously hardcoded x86_64 path in an install file
+    (Closes: #739665)
+  * Fix upgrade from versions before 1.3.99.7 due to file conflicts.
+    Thanks to Simon McVittie (Closes: #739662)
+  * Add sections for files previously missing in copyright information
+    (Closes: #739616)
+  * Remove 0001-Fix-incorrect-mktemp-usage-reported-by-Helmut-Grohne.patch,
+    fixed upstream in a different way
+
+ -- Tino Mettler <tino+debian@tikei.de>  Fri, 21 Feb 2014 11:44:04 +0100
+
+syncevolution (1.3.99.7-1) unstable; urgency=high
+
+  * New upstream release candidate
+  * Add 0001-Fix-incorrect-mktemp-usage-reported-by-Helmut-Grohne.patch,
+    which fixes CVE-2014-1639
+    (Closes: #736357)
+  * Enable Akonadi support, separate Evolution (GNOME) and Akonadi (KDE) support
+    (Closes: #682520)
+  * Update standards version to 3.9.5, no changes needed
+  * Add NEWS item to describe changes regarding KDE and GNOME support
+
+ -- Tino Keitel <tino+debian@tikei.de>  Fri, 31 Jan 2014 12:44:35 +0100
+
+syncevolution (1.3.2-1) unstable; urgency=low
+
+  * Install syncevo-local-sync helper, required for CardDAV/CalDAV.
+    Thanks to Gregor Herrmann for the patch. (Closes: #679657)
+  * New upstream release (Closes: #682280, #684077, #694004, #722044)
+  * Use multiarch paths for shared object files
+  * Raise debhelper compatibility level to 9
+  * Build with --as-needed and with hardening flags enabled
+  * Depend on recent libsynthesis, to pull in the fix for #694005
+  * Added upstream patch 0001-GTK-GTK3-UI-fix-crash-on-64-bit.patch to fix a
+    segmentation fault in sync-ui when built with hardening=+pie
+
+ -- Tino Keitel <tino+debian@tikei.de>  Tue, 01 Oct 2013 10:52:25 +0200
+
+syncevolution (1.2.99.1-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * dbus-auto-activation.patch: new patch backported from upstream; fix
+    D-Bus auto-activation. Thanks to Josselin Mouette for pointing to the
+    relevant commit. (Closes: #699852)
+
+ -- Sébastien Villemot <sebastien@debian.org>  Mon, 01 Apr 2013 20:12:55 +0200
+
+syncevolution (1.2.99.1-1) unstable; urgency=low
+
+  * New upstream release candidate (Closes: #675288)
+  * Use DEB_REF instead of UPSTREAM_REF for git based patch creation
+  * Add libpcre3-dev and libcppunit-dev build dependencies
+  * New library package for libgdbussyncevo
+  * Install new syncevo-dbus-helper binary
+  * Document possible issues when upgrading from 1.2.x in NEWS
+
+ -- Tino Keitel <tino+debian@tikei.de>  Fri, 29 Jun 2012 12:42:18 +0200
+
+syncevolution (1.2.2-1) unstable; urgency=medium
+
+  * New upstream version
+  * Fix upgrade from squeeze (Closes: #657001)
+  * Re-add sync-ui icon file (Closes: #658519)
+
+ -- Tino Keitel <tino+debian@tikei.de>  Mon, 06 Feb 2012 19:33:08 +0100
+
+syncevolution (1.2.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Update build dependencies to current libsynthesis
+  * Remove 0001-README-crucial-syncURL-was-missing.patch, included upstream
+
+ -- Tino Keitel <tino+debian@tikei.de>  Mon, 19 Dec 2011 21:35:51 +0100
+
+syncevolution (1.1.99.5a-2) unstable; urgency=low
+
+  * Upload to unstable
+  * New maintainer: me. Thanks David for the great work. (Closes: #624540)
+  * Replace "!kfreebsd-*" and "!hurd-*" build depencendies with "linux-any"
+    as bluez is only available on Linux (Closes: #634747)
+  * Add 0001-README-crucial-syncURL-was-missing.patch which contains a
+    small CalDAV/CardDAV documentation fix from upstream git
+  * Rework package descriptions to mention new features
+  * Add README.Debian with some hints for HTTP server operation
+  * Correctly enable CalDAV/WebDAV in the configure call (Closes: #624642)
+
+ -- Tino Keitel <tino+debian@tikei.de>  Wed, 03 Aug 2011 15:18:46 +0200
+
+syncevolution (1.1.99.5a-1) experimental; urgency=low
+
+  * New upstream version 1.1.99.5a, first release candiate for 1.2
+  * Added python-openssl dependency, the HTTP server needs it for HTTPS support
+  * Added versioned dependency on libsynthesis0 to get required features
+  * Fixed .orig.tar.gz generation in get-orig-source target
+  * Added myself to Uploaders:, thanks to David for sponsoring
+  * Use updated upstream tag for source package generation
+  * Removed 0001-Replace-with-in-call-to-PKG_CHECK_MODULES.patch, fixed upstream
+  * Renamed NEWS.Debian to NEWS so that it is actually used
+  * Updated NEWS for 1.1.99.5a
+
+ -- Tino Keitel <tino+debian@tikei.de>  Wed, 20 Jul 2011 16:02:02 +0200
+
+syncevolution (1.1.99.4+ds1-1) experimental; urgency=low
+
+  * New upstream release candidate
+  * Rebuilt against new libsynthesis (Closes: #615263)
+  * Removed icalstrdup patch, now upstream.
+  * Enable CalDAV/CardDAV (Closes: #624642)
+  * Bump Standards-Version to 3.9.2 (no changes)
+  * New binary packages: libsyncevolution0, libsyncevo-dbus0
+    syncevolution-libs
+
+ -- David Bremner <bremner@debian.org>  Fri, 03 Jun 2011 21:56:26 -0300
+
+syncevolution (1.1.99.3+ds1-1) experimental; urgency=low
+
+  * New upstream (pre-release) version
+  * Remove two s390 related patches, now contained in upstream 
+    commit 63d76f874270cbafb2.
+
+ -- David Bremner <bremner@debian.org>  Tue, 08 Mar 2011 16:05:30 -0400
+
+syncevolution (1.1+ds1-5) unstable; urgency=low
+
+  * patch: Avoid dependence on PATH_MAX (fixes FTBFS on hurd).
+  * patch: Add a second translation between sysync::memSize and size_t
+    (Closed: #604840)
+  * Move synccompare man page to syncevolution-common
+
+ -- David Bremner <bremner@debian.org>  Sun, 28 Nov 2010 10:27:11 -0400
+
+syncevolution (1.1+ds1-4) experimental; urgency=low
+
+  * Remove build dependency on libopenobex1-dev on hurd-i386, because it is not 
+    available there. The package is already built without it on kfreebsd.
+  * Explicitly translate between sysync::memSize and size_t. Thanks to
+    Patrick Ohly for the patch.
+
+ -- David Bremner <bremner@debian.org>  Wed, 24 Nov 2010 15:10:00 -0800
+
+syncevolution (1.1+ds1-3) experimental; urgency=low
+
+  * Upload to experimental to test autobuilding, particularly on Hurd.
+
+ -- David Bremner <bremner@debian.org>  Sun, 21 Nov 2010 08:37:48 -0800
+
+syncevolution (1.1+ds1-2) experimental; urgency=low
+
+  * Update conflicts/replaces for syncevolution-common. Thanks to Simon
+    McVittie for the report, and the fix. (Closes: #603023).
+
+ -- David Bremner <bremner@debian.org>  Wed, 10 Nov 2010 16:32:55 -0400
+
+syncevolution (1.1+ds1-1) experimental; urgency=low
+
+  [ David Bremner ]
+  * New upstream release (Closes: #582376)
+  * Update maintainer address
+  * New binary package syncevolution-http for syncevo-http-server
+    (Closes: #573265)
+  * Add -dbg package to hold debugging symbols
+  * Recommend evolution-data-server instead of evolution
+  * Update Standards-Version to 3.9.1 (No changes).
+  
+  [ Thomas Bechtold ]
+  * Split source package into syncevolution-common, syncevolution and
+    sync-ui.
+  * add dbus-server-sync.py and syncevo-phone-config.py to syncevolution
+    examples
+
+ -- David Bremner <bremner@debian.org>  Mon, 08 Nov 2010 19:59:29 -0400
+
+syncevolution (1.0+ds1~beta2a-1) unstable; urgency=low
+
+  * New upstream beta (Closes: #572640)
+  * According to http://bugzilla.moblin.org/show_bug.cgi?id=8758,
+    syncevolution is now smarter about retrying in certain situations.
+    (Closes: #565527).
+  * Update Standard-Version to 3.8.4 (No changes).
+
+ -- David Bremner <bremner@unb.ca>  Fri, 26 Feb 2010 15:45:00 -0400
+
+syncevolution (1.0+ds1~a1-2) experimental; urgency=low
+
+  * Don't build depend on libopenobex1-dev on kfreebsd-*. This avoids
+    trying to compile bluetooth support, which relies on bluez 
+    (Closes: #566940)
+
+ -- David Bremner <bremner@unb.ca>  Tue, 26 Jan 2010 23:28:44 -0400
+
+syncevolution (1.0+ds1~a1-1) experimental; urgency=low
+
+  * New Upstream Version
+  * Development snapshot, use with caution.
+
+ -- David Bremner <bremner@unb.ca>  Sun, 17 Jan 2010 22:07:03 -0400
+
+syncevolution (0.9.1+ds1-1) unstable; urgency=low
+
+  * New Upstream Version
+  * Standards Version 3.8.3 (no changes)
+  * Convert to source package format 3.0 (quilt)
+
+ -- David Bremner <bremner@unb.ca>  Fri, 20 Nov 2009 07:55:54 -0400
+
+syncevolution (0.9+ds1-2) unstable; urgency=low
+
+  * Major update to debian/changelog to list all copyright holders.
+
+ -- David Bremner <bremner@unb.ca>  Fri, 20 Nov 2009 07:55:03 -0400
+
+syncevolution (0.9+ds1-1) unstable; urgency=low
+
+  * Initial release (Closes: #404942)  
+
+ -- David Bremner <bremner@unb.ca>  Sun, 16 Aug 2009 23:53:47 -0300
